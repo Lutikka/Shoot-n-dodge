@@ -1,3 +1,4 @@
 Snd\MainTest.class
+Snd\Gamelogic\ObjectHolderTest.class
 Snd\Gamelogic\ShipTest.class
 Snd\Gamelogic\PositionTest.class

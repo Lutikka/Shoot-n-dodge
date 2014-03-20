@@ -7,7 +7,7 @@ package Snd.Gamelogic;
 
 
 /**
- *
+ * 
  * @author Lutikka
  */
 public abstract class Ship extends MovingObject implements Destroyable{

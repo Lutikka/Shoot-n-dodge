@@ -5,7 +5,7 @@
 package Snd.Gamelogic;
 
 /**
- *
+ * Pitää sisällään tiedon Objektin positiosta pelissä
  * @author Lutikka
  */
 public class Position implements Updateable {
@@ -19,11 +19,19 @@ public class Position implements Updateable {
         this.y = y;
         this.speedVec = speedVec;
     }
+    
+    public Position(float x, float y) {
+        this.x = x;
+        this.y = y;
+        this.speedVec = null;
+    }
 
     @Override
     public void update() {
+        if(speedVec!=null){
         setX(this.x + speedVec.getSpeedX());
         setY(this.y + speedVec.getSpeedY());
+        }
     }
 
     public float getX() {

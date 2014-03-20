@@ -5,7 +5,7 @@
 package Snd.Gamelogic;
 
 /**
- *
+ * Pelissä olevan kappaleen nopeusvektori. Objektit liikkuu tämän avulla
  * @author Lutikka
  */
 public class SpeedVector {

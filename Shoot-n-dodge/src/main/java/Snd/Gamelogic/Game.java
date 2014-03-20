@@ -5,7 +5,7 @@
 package Snd.Gamelogic;
 
 /**
- * 
+ * Kapseloi pelilogiikan
  * @author Lutikka
  */
 public class Game {

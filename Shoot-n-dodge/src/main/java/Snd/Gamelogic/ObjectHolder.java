@@ -7,15 +7,15 @@ package Snd.Gamelogic;
 import java.util.ArrayList;
 
 /**
- *
+ * Pitää sisällään kaikki pelissä olevat objektit
  * @author Lutikka
  */
 public class ObjectHolder {
 
-    ArrayList<Ship> ships; 
+    private ArrayList<Ship> ships; 
     
     public ObjectHolder() {
-        ships = new ArrayList<Ship>();
+        this.ships = new ArrayList<Ship>();
     }
     
     public void update(){
@@ -31,6 +31,12 @@ public class ObjectHolder {
     }
     
     public void addShip(Ship s){
-        ships.add(s);
+        this.ships.add(s);
     }
+
+    public ArrayList<Ship> getShips() {
+        return ships;
+    }
+    
+    
 }
