@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>S-n-d</groupId>
+    <groupId>Snd</groupId>
     <artifactId>Shoot-n-dodge</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -36,7 +36,7 @@
                     <source>1.7</source>
                     <target>1.7</target>
                 </configuration>
-                <version>2.5</version>
+                <version>3.1</version> 
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -44,8 +44,8 @@
                 <configuration>
                     <instrumentation>
                         <includes>
-                            <include>ristinolla.logiikka/*.class</include>
-                            <include>ristinolla.tekoaly/*.class</include>
+                            <include>Snd/*.class</include>
+                            <include>Snd.Gamelogic/*.class</include>
                         </includes>
                     </instrumentation>
                 </configuration>
@@ -57,12 +57,12 @@
                 <version>0.30</version>
                 <configuration>
                     <targetClasses>
-                        <param>ristinolla.logiikka.*</param>
-                        <param>ristinolla.tekoaly.*</param>
+                        <param>Snd.*</param>
+                        <param>Snd.Gamelogic.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>ristinolla.logiikka.*</param>
-                        <param>ristinolla.tekoaly.*</param>
+                        <param>Snd.*</param>
+                        <param>Snd.Gamelogic.*</param>
                     </targetTests>
                 </configuration>
             </plugin>
