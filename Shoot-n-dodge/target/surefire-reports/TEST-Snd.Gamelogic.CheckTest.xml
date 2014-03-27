@@ -60,14 +60,14 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0.002" classname="Snd.Gamelogic.CheckTest" name="testProjectileWallCollisionYlajaVasenEiKollisiota"/>
+  <testcase time="0.003" classname="Snd.Gamelogic.CheckTest" name="testShipWallCollisionAlaJaOikeaKollisiolla"/>
+  <testcase time="0" classname="Snd.Gamelogic.CheckTest" name="testShipWallCollisionYlaJaVasenKollisiolla"/>
+  <testcase time="0" classname="Snd.Gamelogic.CheckTest" name="testProjectileToShipCollisionYlaKollisiolla"/>
+  <testcase time="0" classname="Snd.Gamelogic.CheckTest" name="testProjectileToShipCollisionAlaKollisiolla"/>
+  <testcase time="0" classname="Snd.Gamelogic.CheckTest" name="testProjectileWallCollisionYlajaVasenEiKollisiota"/>
   <testcase time="0" classname="Snd.Gamelogic.CheckTest" name="testProjectileWallCollisionAlaJaOikeaEiKollisiota"/>
   <testcase time="0" classname="Snd.Gamelogic.CheckTest" name="testProjectileWallCollisionYlajaVasenKollisiolla"/>
   <testcase time="0" classname="Snd.Gamelogic.CheckTest" name="testProjectileWallCollisionAlaJaOikeaKollisiolla"/>
   <testcase time="0" classname="Snd.Gamelogic.CheckTest" name="testProjectileToShipCollisionVasenKollisiolla"/>
-  <testcase time="0.001" classname="Snd.Gamelogic.CheckTest" name="testProjectileToShipCollisionOikeaKollisiolla"/>
-  <testcase time="0" classname="Snd.Gamelogic.CheckTest" name="testShipWallCollisionAlaJaOikeaKollisiolla"/>
-  <testcase time="0" classname="Snd.Gamelogic.CheckTest" name="testShipWallCollisionYlaJaVasenKollisiolla"/>
-  <testcase time="0" classname="Snd.Gamelogic.CheckTest" name="testProjectileToShipCollisionYlaKollisiolla"/>
-  <testcase time="0" classname="Snd.Gamelogic.CheckTest" name="testProjectileToShipCollisionAlaKollisiolla"/>
+  <testcase time="0" classname="Snd.Gamelogic.CheckTest" name="testProjectileToShipCollisionOikeaKollisiolla"/>
 </testsuite>

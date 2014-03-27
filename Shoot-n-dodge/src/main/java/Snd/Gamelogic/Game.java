@@ -23,4 +23,9 @@ public class Game {
         objects.draw();
         
     }
+
+    public ObjectHolder getObjects() {
+        return objects;
+    }
+    
 }

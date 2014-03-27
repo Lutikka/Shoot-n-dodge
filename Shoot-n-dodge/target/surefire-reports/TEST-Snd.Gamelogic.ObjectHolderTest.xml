@@ -60,9 +60,9 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0" classname="Snd.Gamelogic.ObjectHolderTest" name="testCheckProjectileCollisionsToimiiEiMitaanKollisiota"/>
-  <testcase time="0" classname="Snd.Gamelogic.ObjectHolderTest" name="testCheckShipCollisionsToimiiEiMitaanKollisiota"/>
+  <testcase time="0" classname="Snd.Gamelogic.ObjectHolderTest" name="testKonstruktoriToimiiOikein"/>
   <testcase time="0" classname="Snd.Gamelogic.ObjectHolderTest" name="testAddShipToimii"/>
   <testcase time="0" classname="Snd.Gamelogic.ObjectHolderTest" name="testAddProjectileToimii"/>
-  <testcase time="0" classname="Snd.Gamelogic.ObjectHolderTest" name="testKonstruktoriToimiiOikein"/>
+  <testcase time="0" classname="Snd.Gamelogic.ObjectHolderTest" name="testCheckProjectileCollisionsToimiiEiMitaanKollisiota"/>
+  <testcase time="0" classname="Snd.Gamelogic.ObjectHolderTest" name="testCheckShipCollisionsToimiiEiMitaanKollisiota"/>
 </testsuite>
