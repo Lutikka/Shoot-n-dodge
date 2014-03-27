@@ -1,5 +1,6 @@
 Snd\MainTest.class
+Snd\Gamelogic\GameObjects\MovingObjectTest.class
 Snd\Gamelogic\ObjectHolderTest.class
-Snd\Gamelogic\ShipTest.class
-Snd\Gamelogic\MovingObjectTest.class
 Snd\Gamelogic\PositionTest.class
+Snd\Gamelogic\GameObjects\ShipTest.class
+Snd\Gamelogic\CheckTest.class

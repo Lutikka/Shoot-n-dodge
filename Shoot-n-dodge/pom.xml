@@ -46,6 +46,7 @@
                         <includes>
                             <include>Snd/*.class</include>
                             <include>Snd.Gamelogic/*.class</include>
+                            <include>Snd.Gamelogic.GameObjects/*.class</include>
                         </includes>
                     </instrumentation>
                 </configuration>
@@ -59,10 +60,12 @@
                     <targetClasses>
                         <param>Snd.*</param>
                         <param>Snd.Gamelogic.*</param>
+                        <param>Snd.Gamelogic.GameObjects.*</param>
                     </targetClasses>
                     <targetTests>
                         <param>Snd.*</param>
                         <param>Snd.Gamelogic.*</param>
+                        <param>Snd.Gamelogic.GameObjects.*</param>
                     </targetTests>
                 </configuration>
             </plugin>

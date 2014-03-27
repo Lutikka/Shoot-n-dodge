@@ -18,6 +18,13 @@ public class SpeedVector {
         this.speedY = speedY;
 
     }
+    public SpeedVector(Position from, Position at,float speed){
+        float deltaX = at.getX()-from.getX();
+        float deltaY = at.getY()-from.getY();
+        double hyp = Math.sqrt(Math.pow(deltaX, 2)+Math.pow(deltaY, 2));
+        speedX=(float)(deltaX/hyp)*speed;
+        speedY=(float)(deltaY/hyp)*speed;
+    }
 
     public float getSpeedX() {
         return speedX;

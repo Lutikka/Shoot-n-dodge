@@ -4,6 +4,8 @@
  */
 package Snd.Gamelogic;
 
+import Snd.Gamelogic.Updateable;
+
 /**
  * Pitää sisällään tiedon Objektin positiosta pelissä
  * @author Lutikka

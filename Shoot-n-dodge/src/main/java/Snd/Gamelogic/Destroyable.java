@@ -11,9 +11,6 @@ package Snd.Gamelogic;
 public interface Destroyable {
     
     public void destroyed();
-    public int getHp();
-    public int getMaxHp();
-    public void changeHp(int hp);
     public boolean isAlive();
     public void destroy();
 }

@@ -11,3 +11,7 @@ Ajankäyttö
 20.3.2014
 
 5h: Luokkakaavio, koodausta ja testausta
+
+27.3.2014
+
+6h: TarkennettuLuokkakaavio, uusia luokkia ja testejä + vanhojen täydennystä
