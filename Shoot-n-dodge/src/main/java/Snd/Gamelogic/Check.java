@@ -9,6 +9,7 @@ import Snd.Gamelogic.GameObjects.Ship;
 
 /**
  *
+ * Käytetään pelin sisäisten tarkistuksien tekemiseen
  * @author Lutikka
  */
 public final class Check {

@@ -5,7 +5,7 @@
 package Snd.Gamelogic;
 
 /**
- *
+ * Sisältää tiedon pelissä olevan kappaleen koosta
  * @author Lutikka
  */
 public class Size {

@@ -11,6 +11,7 @@ import java.awt.Color;
 
 /**
  *
+ * Luokka pelissä oleville ammuksille
  * @author Lutikka
  */
 public class Projectile extends MovingObject implements Destroyable{
