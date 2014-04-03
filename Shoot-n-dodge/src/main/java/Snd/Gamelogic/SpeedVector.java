@@ -13,11 +13,20 @@ public class SpeedVector {
     float speedX;
     float speedY;
 
+    
+    /*
+     * Käytetään kun tiedetään vektorin x ja y komponentit.
+     */
     public SpeedVector(float speedX, float speedY) {
         this.speedX = speedX;
         this.speedY = speedY;
 
     }
+    
+    /*
+     * Käytetään kun halutaan vektori pisteestä from pisteeseen at pituudella speed. 
+     * 
+     */
     public SpeedVector(Position from, Position at,float speed){
         float deltaX = at.getX()-from.getX();
         float deltaY = at.getY()-from.getY();

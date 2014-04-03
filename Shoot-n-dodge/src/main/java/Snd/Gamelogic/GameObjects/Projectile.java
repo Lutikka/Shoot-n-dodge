@@ -5,6 +5,9 @@
 package Snd.Gamelogic.GameObjects;
 
 import Snd.Gamelogic.Destroyable;
+import Snd.Gamelogic.Size;
+import Snd.MyGraphics;
+import java.awt.Color;
 
 /**
  *
@@ -15,9 +18,11 @@ public class Projectile extends MovingObject implements Destroyable{
     int power;
     private boolean alive;
     private int team;
+    static MyGraphics graphics;
 
-    public Projectile(float x, float y, float dx, float dy, int power, int team) {
+    public Projectile(float x, float y, float dx, float dy, int power, MyGraphics graphics, int team) {
         super(x, y, dx, dy);
+        this.graphics = graphics;
         this.power=power;
         alive=true;
     }
@@ -29,6 +34,21 @@ public class Projectile extends MovingObject implements Destroyable{
 
     public int getPower() {
         return power;
+    }
+    
+    @Override
+    public void draw() {
+        if(graphics==null)
+            return;
+        Color c;
+        if(team==0)
+            c= Color.GREEN;
+        else if(team==1)
+            c= Color.RED;
+        else c= Color.BLUE;
+        
+        Size s = new Size(0.005f,0.005f);
+        graphics.drawRectangle(super.getPos(), s, c);     
     }
 
     @Override

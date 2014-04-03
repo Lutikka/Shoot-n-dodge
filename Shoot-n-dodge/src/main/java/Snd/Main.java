@@ -15,6 +15,7 @@ public class Main {
     
     private boolean running;
     private Game game;
+    private MyGraphics graphics;
     public static void main(String[] args) {
         Main m = new Main(); //purkka?
         m.init();
@@ -24,12 +25,12 @@ public class Main {
     public void init(){
         //init Main asd
         running=true;
-        //init GL
-        
+        //init Graphics
+        graphics = new MyGraphics("Peli",800,600);
         //init SoundManager
         
         //init Gamelogic
-        game = new Game();
+        game = new Game(graphics);
         
     }
     
@@ -56,10 +57,16 @@ public class Main {
             
             update();
             
+            graphics.drawingStart();
             draw();
             
-            //blit display
-            //sync(60);
+            graphics.drawingEnd();           
+           
+            try{
+                Thread.sleep(500);
+            }catch(InterruptedException e){
+                
+            }
         }
     }
     

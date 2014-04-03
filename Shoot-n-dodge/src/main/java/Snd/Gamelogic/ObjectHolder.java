@@ -6,8 +6,8 @@ package Snd.Gamelogic;
 
 import Snd.Gamelogic.GameObjects.Projectile;
 import Snd.Gamelogic.GameObjects.Ship;
-import Snd.Gamelogic.Check;
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  * Pitää sisällään kaikki pelissä olevat objektit
@@ -68,9 +68,14 @@ public class ObjectHolder {
     }
 
     public void update() {
+        Stack<Projectile> removalStack = new Stack<Projectile>();
+        Stack<Ship> removalStack2 = new Stack<Ship>();
         //update ships
         for (Ship ship : ships) {
             ship.update();
+            if(!ship.isAlive()){
+                removalStack2.add(ship);
+            }
         }
         //check ship collisions
         checkShipCollisions();
@@ -78,21 +83,23 @@ public class ObjectHolder {
         //update projectiles
         for (Projectile p : projectiles) {
             p.update();
+            if(!p.isAlive()){
+                removalStack.push(p);
+            }
         }
         //check projectile collisions
         checkProjectileCollisions();
-        //remove destroyed projectiles
-        for (Projectile p : projectiles) {
+        
+        //remove destroyed projectiles    
+        for (Projectile p : removalStack) {
             p.destroyed();
-            // TODO remove it from datastructure
-
-        }
-
+            projectiles.remove(p);
+        } 
+        
         //remove destroyed ships
-        for (Ship ship : ships) {
+        for (Ship ship : removalStack2) {
             ship.destroyed();
-            // TODO remove it from datastructure
-
+            ships.remove(ship);
         }
     }
 
@@ -102,7 +109,11 @@ public class ObjectHolder {
             ship.draw();
         }
 
-        //draw ammon
+        //draw projectile
+        
+        for (Projectile p : projectiles) {
+            p.draw();
+        }
     }
 
     public void addShip(Ship s) {

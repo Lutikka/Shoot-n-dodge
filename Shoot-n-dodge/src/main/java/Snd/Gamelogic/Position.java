@@ -11,9 +11,11 @@ import Snd.Gamelogic.Updateable;
  * @author Lutikka
  */
 public class Position implements Updateable {
-
     private float x;
     private float y;
+    /*
+     * Nopeusvektori liikkumiseen
+     */
     private SpeedVector speedVec;
 
     public Position(float x, float y, SpeedVector speedVec) {

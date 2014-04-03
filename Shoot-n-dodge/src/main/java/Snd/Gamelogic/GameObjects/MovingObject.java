@@ -11,6 +11,8 @@ import Snd.Gamelogic.Updateable;
 
 /**
  *
+ * All in-game objects that move have this class as their super class.
+ * 
  * @author Lutikka
  */
 public class MovingObject implements Updateable, Drawable {
