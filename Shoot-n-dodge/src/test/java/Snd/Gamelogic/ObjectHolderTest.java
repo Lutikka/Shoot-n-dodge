@@ -87,4 +87,48 @@ public class ObjectHolderTest {
         
         
     }
+    
+    @Test
+    public void testUpdateShip(){
+        ObjectHolder oh = new ObjectHolder();
+        Ship.setOh(oh);
+        Ship s1 = new TestedShip(0.4f,0.6f,-0.3f,-0.5f,2,2,0.0005f,0.0005f,0);
+        Ship s2 = new TestedShip(0.4f,0.6f,0.5f,0.3f,2,2,0.0005f,0.0005f,0);
+        oh.addShip(s1);
+        oh.addShip(s2);
+        oh.update();
+        Ship s12 = oh.getShips().get(0);
+        Ship s22 = oh.getShips().get(1);
+        assertEquals("Ship 1: X positio väärä 1 updaten jälkeen",0.1f,s12.getPos().getX(),0.001f);
+        assertEquals("Ship 1: Y positio väärä 1 updaten jälkeen",0.1f,s12.getPos().getY(),0.001f);
+        assertEquals("Ship 2: X positio väärä 1 updaten jälkeen",0.9f,s22.getPos().getX(),0.001f);
+        assertEquals("Ship 2: Y positio väärä 1 updaten jälkeen",0.9f,s22.getPos().getY(),0.001f);
+        oh.update();
+        Ship s13 = oh.getShips().get(0);
+        Ship s23 = oh.getShips().get(1);
+        assertEquals("Ship 1: X positio väärä 2 updaten jälkeen",0.0f,s13.getPos().getX(),0.001f);
+        assertEquals("Ship 1: Y positio väärä 2 updaten jälkeen",0.0f,s13.getPos().getY(),0.001f);
+        assertEquals("Ship 2: X positio väärä 2 updaten jälkeen",1.0f,s23.getPos().getX(),0.001f);
+        assertEquals("Ship 2: Y positio väärä 2 updaten jälkeen",1.0f,s23.getPos().getY(),0.001f);
+    }
+    
+    @Test
+    public void testUpdateProjectile(){
+        ObjectHolder oh = new ObjectHolder();
+        Projectile p1 = new Projectile(0.4f,0.6f,-0.3f,-0.5f,1,0);
+        Projectile p2 = new Projectile(0.4f,0.6f,0.5f,0.3f,1,0);
+        oh.addProjectile(p1);
+        oh.addProjectile(p2);
+        oh.update();
+        Projectile p12 = oh.getProjectiles().get(0);
+        Projectile p22 = oh.getProjectiles().get(1);
+        assertEquals("Projectile 1: X positio väärä 1 updaten jälkeen",0.1f,p12.getPos().getX(),0.001f);
+        assertEquals("Projectile 1: Y positio väärä 1 updaten jälkeen",0.1f,p12.getPos().getY(),0.001f);
+        assertEquals("Projectile 2: X positio väärä 1 updaten jälkeen",0.9f,p22.getPos().getX(),0.001f);
+        assertEquals("Projectile 2: Y positio väärä 1 updaten jälkeen",0.9f,p22.getPos().getY(),0.001f);
+        oh.update();
+        oh.update();
+        assertEquals("Projectilet hengissä vaikkei pitänyt",0,oh.getProjectiles().size());
+
+    }
 }

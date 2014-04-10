@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.004" errors="0" skipped="0" tests="5" name="Snd.Gamelogic.ObjectHolderTest">
+<testsuite failures="0" time="0.001" errors="0" skipped="0" tests="7" name="Snd.Gamelogic.ObjectHolderTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_25\jre\bin"/>
@@ -63,6 +63,8 @@
   <testcase time="0" classname="Snd.Gamelogic.ObjectHolderTest" name="testKonstruktoriToimiiOikein"/>
   <testcase time="0" classname="Snd.Gamelogic.ObjectHolderTest" name="testAddShipToimii"/>
   <testcase time="0" classname="Snd.Gamelogic.ObjectHolderTest" name="testAddProjectileToimii"/>
-  <testcase time="0.004" classname="Snd.Gamelogic.ObjectHolderTest" name="testCheckProjectileCollisionsToimiiEiMitaanKollisiota"/>
+  <testcase time="0" classname="Snd.Gamelogic.ObjectHolderTest" name="testUpdateShip"/>
+  <testcase time="0" classname="Snd.Gamelogic.ObjectHolderTest" name="testUpdateProjectile"/>
+  <testcase time="0" classname="Snd.Gamelogic.ObjectHolderTest" name="testCheckProjectileCollisionsToimiiEiMitaanKollisiota"/>
   <testcase time="0" classname="Snd.Gamelogic.ObjectHolderTest" name="testCheckShipCollisionsToimiiEiMitaanKollisiota"/>
 </testsuite>
