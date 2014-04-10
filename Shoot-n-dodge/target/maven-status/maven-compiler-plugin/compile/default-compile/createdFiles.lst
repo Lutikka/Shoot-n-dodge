@@ -8,8 +8,10 @@ Snd\Gamelogic\ObjectHolder.class
 Snd\Gamelogic\Destroyable.class
 Snd\Gamelogic\Control.class
 Snd\Gamelogic\GameObjects\TestedShip.class
+Snd\KeyBinds.class
 Snd\Gamelogic\GameObjects\Projectile.class
 Snd\Gamelogic\Updateable.class
+Snd\Input.class
 Snd\Gamelogic\Position.class
 Snd\Gamelogic\AI.class
 Snd\Gamelogic\Game.class

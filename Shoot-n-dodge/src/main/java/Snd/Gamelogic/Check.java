@@ -16,6 +16,12 @@ public final class Check {
     private float floatMaxX;
     private float floatMaxY;
     
+    /**
+     * Konstruktori
+     * 
+     * @param floatMaxX Pelinsisäinen maksimi ikkunan koko x
+     * @param floatMaxY Pelinsisäinen maksimi ikkunan koko y
+     */
     public Check(float floatMaxX, float floatMaxY) {
         this.floatMaxX = floatMaxX;
         this.floatMaxY = floatMaxY;
@@ -24,6 +30,17 @@ public final class Check {
     /*
      * returns array of booleans. @value true indicates that a collision did happen 
      * against the corresponding wall
+     * @0 left wall
+     * @1 upper wall
+     * @2 right wall
+     * @3 down wall
+     */
+    /**
+     * Tarkistaa kaikki Projectilen ja pelin seinien väliset kollisiot
+     * 
+     * @param p Tarkistettava projektiili
+     * @return palauttaa boolean tauluko kollisioista. True arvo tarkoittaa 
+     * että kollisio tapahtui.
      * @0 left wall
      * @1 upper wall
      * @2 right wall
@@ -41,15 +58,19 @@ public final class Check {
                
        return tmp;
     }
-    /*
-     * returns array of booleans. value of true indicates that a collision did happen 
-     * against the corresponding wall
+    
+     /**
+     * Tarkistaa kaikki Shipin ja pelin seinien väliset kollisiot
+     * 
+     * @param s Tarkistettava Ship
+     * @return palauttaa boolean tauluko kollisioista. True arvo tarkoittaa 
+     * että kollisio tapahtui.
      * @0 left wall
      * @1 upper wall
      * @2 right wall
      * @3 down wall
      */
-     public boolean[] checkWallCollisions(Ship s){
+    public boolean[] checkWallCollisions(Ship s){
         boolean[] tmp = new boolean[4];
          for (boolean b : tmp) {
              b=false;
@@ -61,6 +82,12 @@ public final class Check {
                
         return tmp;
     }
+    /**
+     *
+     * @param x X koordinaatti
+     * @return totuusarvo kollisiosta.
+     * Arvo True tarkoittaa että kollisio tapahtui.
+     */
     public boolean checkLeftWallCollision(float x){
         if(x<0)
             return true;
@@ -68,17 +95,32 @@ public final class Check {
         return false;
     }
     
+    /**
+     *
+     * @param y Y koordinaatti
+     * @return totuusarvo kollisiosta.
+     * Arvo True tarkoittaa että kollisio tapahtui.
+     */
     public boolean checkUpWallCollision(float y){
-        if(y<0)
-            return true;
-        
-        return false;
+        return checkLeftWallCollision(y);
     }
+    /**
+     *
+     * @param x X koordinaatti
+     * @return totuusarvo kollisiosta.
+     * Arvo True tarkoittaa että kollisio tapahtui.
+     */
     public boolean checkRightWallCollision(float x){
         if(x>floatMaxX)
             return true;
         return false;
     }
+    /**
+     *
+     * @param y Y koordinaatti
+     * @return totuusarvo kollisiosta.
+     * Arvo True tarkoittaa että kollisio tapahtui.
+     */
     public boolean checkDownWallCollision(float y){
         if(y>floatMaxY)
             return true;
@@ -87,6 +129,13 @@ public final class Check {
     
    
     
+    /**
+     * Ei käytössä.
+     * Ei tee mitään.
+     * @param s1
+     * @param s2
+     * @return
+     */
     public boolean checkShipToShipCollisions(Ship s1, Ship s2){
         
         //TODO
@@ -94,6 +143,12 @@ public final class Check {
         return false;
     }
     
+    /**
+     * Tarkistaa Projectilen ja Shipin väliset kollisiot
+     * @param p Projectile p
+     * @param s Ship s
+     * @return
+     */
     public boolean checkProjectileToShipCollisions(Projectile p, Ship s){
        if(p.getPos().getX()>(s.getPos().getX()-(s.getSize().getWidth()/2)))
        if(p.getPos().getX()<(s.getPos().getX()+(s.getSize().getWidth()/2))) 
@@ -103,10 +158,18 @@ public final class Check {
         return false;
     }
 
+    /**
+     *
+     * @return
+     */
     public float getFloatMaxX() {
         return floatMaxX;
     }
 
+    /**
+     *
+     * @return
+     */
     public float getFloatMaxY() {
         return floatMaxY;
     }

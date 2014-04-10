@@ -41,7 +41,7 @@ public class ShipTest {
 
     @Test
     public void testKonstruktoriToimii() {
-        Ship s = new TestedShip(50, 51, 52, 53, 54, 55, 56, 57,new ObjectHolder(),null,0);
+        Ship s = new TestedShip(50, 51, 52, 53, 54, 55, 56, 57,0);
         assertEquals("Konstruktori antaa vaaran posX arvon", s.getPos().getX(), 50, 0.001);
         assertEquals("Konstruktori antaa vaaran posY arvon", s.getPos().getY(), 51, 0.001);
         assertEquals("Konstruktori antaa vaaran speedX arvon", s.getSpeedVec().getSpeedX(), 52, 0.001);
@@ -54,7 +54,7 @@ public class ShipTest {
 
     @Test
     public void testChangeHpToimiiPositiivisellaMuutoksella() {
-        Ship s = new TestedShip(50, 50, 50, 50, 50, 101, 56, 57,new ObjectHolder(),null,0);
+        Ship s = new TestedShip(50, 50, 50, 50, 50, 101, 56, 57,0);
         s.changeHp(50);
         assertEquals("Hp arvo pitaisi olla 100 mutta olikin" + s.getHp() +" , kun lisättiin 50hp arvoon 50", 100, s.getHp());
         s.changeHp(50);
@@ -63,7 +63,7 @@ public class ShipTest {
 
     @Test
     public void testChangeHpToimiiNegatiivisellaMuutoksella() {
-        Ship s = new TestedShip(50, 50, 50, 50, 50, 101, 56, 57,new ObjectHolder(),null,0);
+        Ship s = new TestedShip(50, 50, 50, 50, 50, 101, 56, 57,0);
         s.changeHp(-49);
         assertEquals("Hp arvo pitaisi olla 1 mutta olikin" + s.getHp(), 1, s.getHp());
         assertTrue("Alive pitaisi olla true mutta olikin false , kun lisättiin 50hp arvoon -49", s.isAlive());

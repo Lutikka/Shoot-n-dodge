@@ -19,3 +19,14 @@ Ajankäyttö
 3.4.2014
 
 5h: uusia luokkia incl. käyttöliittymää, ja testejä
+
+9.4.2014
+
+2h: inputin lisäys
+
+10.4.2014
+
+6h: luokkakaavioiden uusiminen, sekvenssikaaviot, javadoc, koodinmuokkaus
+
+
+yhteensä: 28.5 h

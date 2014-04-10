@@ -19,7 +19,9 @@ public class Control {
     private Ship playerShip;
     private boolean running;
     
-    //player ship variables
+    /**
+     * player ship control variables
+     */
     private float maxSpeed;
     private boolean shooting;
     private Position target;
@@ -28,6 +30,12 @@ public class Control {
     private boolean movingRight;
     private boolean movingDown;
 
+    /**
+     * Konstruktoi Controllin
+     * 
+     * @param game kontrolloitava peli
+     * @param graphics peli grafiikat
+     */
     public Control(Game game, MyGraphics graphics) {
         this.game = game;
         this.graphics = graphics;      
@@ -35,8 +43,11 @@ public class Control {
         initPlayerVariables();
     }
     
+    /**
+     * Initialisoi asioita
+     */
     private void initPlayerVariables(){
-        maxSpeed=0.001f;
+        maxSpeed=0.002f;
         shooting=false;
         movingLeft=false;
         movingRight=false;
@@ -44,6 +55,9 @@ public class Control {
         movingDown=false;
     }
     
+    /**
+     * Päivittää Controllin suorittaen mahdolliset pelaajan toiminnot
+     */
     public void update(){
         if(!running){
             start();
@@ -51,11 +65,20 @@ public class Control {
         playerActions();
     }
     
+    /**
+     * Mahdollisten pelaajan toimintojen läpikäynti ja suoritus
+     */
     private void playerActions(){
         if(isRunning()){  
             if(shooting){
-            playerShip.shootAt(target, 0.050f, 1);
+            playerShip.shootAt(target, 0.02f, 1);
             shooting=false;
+            }
+            if(!movingLeft&&!movingRight){
+                playerShip.getSpeedVec().setSpeedX(0);
+            }
+            if(!movingUp&&!movingDown){
+                playerShip.getSpeedVec().setSpeedY(0);
             }
             if(movingLeft){
                 playerShip.getSpeedVec().setSpeedX(-maxSpeed);
@@ -63,28 +86,36 @@ public class Control {
             }
             if(movingRight){
                 playerShip.getSpeedVec().setSpeedX(maxSpeed);
-                movingLeft=false;
-            }
+                movingRight=false;
+            }            
             if(movingUp){
                 playerShip.getSpeedVec().setSpeedY(-maxSpeed);
-                movingLeft=false;
+                movingUp=false;
             }
             if(movingDown){
                 playerShip.getSpeedVec().setSpeedY(maxSpeed);
-                movingLeft=false;
+                movingDown=false;
             }
         }
     }
     
+    /**
+     * Pelin aloitus metodi... Käytössä toistaiseksi
+     */
     public void start(){
-        playerShip= new Ship(0.5f,0.8f,0f,0f,1,5,0.04f,0.04f,game.getObjects(),graphics,0);
+        playerShip= new Ship(0.5f,0.8f,0f,0f,1,5,0.04f,0.04f,0);
         game.getObjects().addShip(playerShip);
         //test
-        game.getObjects().addShip(new Ship(0.2f,0.2f,0.001f,0.001f,1,5,0.04f,0.04f,game.getObjects(),graphics,1));
+        game.getObjects().addShip(new Ship(0.2f,0.2f,0.001f,0.001f,1,5,0.04f,0.04f,1));
         running=true;
         playerShootAt(0.22f,0.2f);
     }
     
+    /**
+     * Laittaa pelaajan aluksen ampumaan pisteeseen (x,y).
+     * @param x X koordinaatti
+     * @param y Y koordinaatti
+     */
     public void playerShootAt(float x, float y){
         if(isRunning()){          
             shooting=true;
@@ -92,6 +123,24 @@ public class Control {
         }
     }
     
+    /**
+     * Laittaa pelaajan aluksen ampumaan käyttöliittymän koordinaatti systeemiä
+     * käyttäen pisteeseen (x,y).
+     * 
+     * @param x X koordinaatti
+     * @param y Y koordinaatti
+     */
+    public void playerShootAt(int x, int y){
+        if(isRunning()){          
+            shooting=true;
+            float[] tmp = graphics.translateToInGameCoordinates(x, y);
+            target = new Position(tmp[0],tmp[1]);
+        }
+    }
+    
+    /**
+     * Metodi pelaajan liikuttamiseen vasemmalle
+     */
     public void playerMoveLeft(){
         if(isRunning()){
             movingRight=false;
@@ -99,6 +148,9 @@ public class Control {
         }   
     }
     
+    /**
+     *Metodi pelaajan liikuttamiseen ylös
+     */
     public void playerMoveUp(){
         if(isRunning()){
             movingDown=false;
@@ -106,6 +158,9 @@ public class Control {
         }   
     }
     
+    /**
+     *Metodi pelaajan liikuttamiseen oikealle
+     */
     public void playerMoveRight(){
         if(isRunning()){
             movingLeft=false;
@@ -113,6 +168,9 @@ public class Control {
         }   
     }
     
+    /**
+     *Metodi pelaajan liikuttamiseen alas
+     */
     public void playerMoveDown(){
         if(isRunning()){
             movingUp=false;
@@ -120,10 +178,18 @@ public class Control {
         }   
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isRunning() {
         return running;
     }
 
+    /**
+     *
+     * @return
+     */
     public Ship getPlayerShip() {
         return playerShip;
     }

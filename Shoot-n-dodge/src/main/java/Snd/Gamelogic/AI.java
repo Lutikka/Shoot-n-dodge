@@ -12,10 +12,17 @@ public class AI{
     
     private Control ctrl;
 
+    /**
+     *
+     * @param ctrl
+     */
     public AI(Control ctrl) {
         this.ctrl = ctrl;
     }
     
+    /**
+     *
+     */
     public void update(){
         ctrl.update();
     }

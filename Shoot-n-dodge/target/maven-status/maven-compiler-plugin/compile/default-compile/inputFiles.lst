@@ -1,4 +1,5 @@
 D:\Programs\Git\Shoot-n-dodge\Shoot-n-dodge\src\main\java\Snd\MyGraphics.java
+D:\Programs\Git\Shoot-n-dodge\Shoot-n-dodge\src\main\java\Snd\KeyBinds.java
 D:\Programs\Git\Shoot-n-dodge\Shoot-n-dodge\src\main\java\Snd\Gamelogic\SpeedVector.java
 D:\Programs\Git\Shoot-n-dodge\Shoot-n-dodge\src\main\java\Snd\Gamelogic\Updateable.java
 D:\Programs\Git\Shoot-n-dodge\Shoot-n-dodge\src\main\java\Snd\Gamelogic\Size.java
@@ -12,6 +13,7 @@ D:\Programs\Git\Shoot-n-dodge\Shoot-n-dodge\src\main\java\Snd\Gamelogic\Destroya
 D:\Programs\Git\Shoot-n-dodge\Shoot-n-dodge\src\main\java\Snd\Gamelogic\Position.java
 D:\Programs\Git\Shoot-n-dodge\Shoot-n-dodge\src\main\java\Snd\Main.java
 D:\Programs\Git\Shoot-n-dodge\Shoot-n-dodge\src\main\java\Snd\Gamelogic\GameObjects\MovingObject.java
+D:\Programs\Git\Shoot-n-dodge\Shoot-n-dodge\src\main\java\Snd\Input.java
 D:\Programs\Git\Shoot-n-dodge\Shoot-n-dodge\src\main\java\Snd\Gamelogic\GameObjects\Projectile.java
 D:\Programs\Git\Shoot-n-dodge\Shoot-n-dodge\src\main\java\Snd\Gamelogic\Check.java
 D:\Programs\Git\Shoot-n-dodge\Shoot-n-dodge\src\main\java\Snd\Gamelogic\GameObjects\IShip.java

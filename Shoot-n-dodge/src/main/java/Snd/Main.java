@@ -13,57 +13,98 @@ import Snd.Gamelogic.Game;
  */
 public class Main {
     
+    /**
+     * Sisältää tiedon pelin suoritustilasta
+     */
     private boolean running;
+    /**
+     * Suoritettava peli/pelilogiikka
+     */
     private Game game;
+    /**
+     * grafiikan ja ikkunan luomiseen
+     */
     private MyGraphics graphics;
+    /**
+     * syötteen saamiseen ja sen eteenpäin lähettämiseen
+     */
+    private Input input;
+    /**
+     * Tästä peli initialisoidaan ja käynnistetään
+     * @param args
+     */
     public static void main(String[] args) {
         Main m = new Main(); //purkka?
         m.init();
         m.start();
     }
     
+    /**
+     * Initialisoi tarvittavat komponentit
+     */
     public void init(){
-        //init Main asd
+        //init Main
         running=true;
         //init Graphics
-        graphics = new MyGraphics("Peli",800,600);
-        //init SoundManager
-        
+        graphics = new MyGraphics("Shoot-n-Dodge",800,600);
         //init Gamelogic
-        game = new Game(graphics);
+        game = new Game(graphics);  
+        //init Input
+        KeyBinds kb= new KeyBinds(game.getCtrl());
+        input = new Input(kb);
+        graphics.addKeyListener(input);
+        graphics.addMouseListener(input);
         
     }
     
+    /**
+     * hoitaa syötteen käsittelyn ja pelin tilan päivittämisen
+     */
     private void update(){
+        input.HandleInput();
         game.update();
     }
     
+    /**
+     * hoitaa pelin piirtämisen MyGraphics:in tarjoamaan ikkunaan
+     */
     private void draw(){
+        graphics.drawingStart();
         game.draw();
+        graphics.drawingEnd();     
     }
     
 
+    /**
+     * 
+     * @return peli
+     */
     public Game getGame() {
         return game;
     }
 
+    /**
+     *
+     * @return totuusarvo siitä pyöriikö peli
+     */
     public boolean isRunning() {
         return running;
     }
+    /**
+     * Aloittaa pääpeliloopin pyörittämisen
+     */
     public void start(){
         
-        
+        //poistaa kertyneen turhan inputin
+        input.DiscardInput();
         while(running){
             
-            update();
             
-            graphics.drawingStart();
+            update();       
             draw();
-            
-            graphics.drawingEnd();           
-           
+        
             try{
-                Thread.sleep(200);
+                Thread.sleep(20);
             }catch(InterruptedException e){
                 
             }

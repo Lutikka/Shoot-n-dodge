@@ -10,6 +10,9 @@ package Snd.Gamelogic;
  */
 public interface Updateable {
     
+    /**
+     *
+     */
     public void update();
     
 }

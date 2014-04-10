@@ -49,7 +49,7 @@ public class ObjectHolderTest {
     @Test
     public void testAddShipToimii() {
         ObjectHolder oh = new ObjectHolder();
-        Ship s = new TestedShip(0,0,0,0,0,0,0,0,new ObjectHolder(),null,0);
+        Ship s = new TestedShip(0,0,0,0,0,0,0,0,0);
         oh.addShip(s);
         assertEquals("Ships add ei toimi",1,oh.getShips().size());
         
@@ -58,7 +58,7 @@ public class ObjectHolderTest {
     @Test
     public void testAddProjectileToimii() {
         ObjectHolder oh = new ObjectHolder();
-        Projectile p = new Projectile(0,0,0,0,0,null,1);
+        Projectile p = new Projectile(0,0,0,0,0,1);
         oh.addProjectile(p);
         assertEquals("Projectiles add ei toimi",1,oh.getProjectiles().size());
     }
@@ -66,8 +66,8 @@ public class ObjectHolderTest {
     @Test
     public void testCheckProjectileCollisionsToimiiEiMitaanKollisiota() {
         ObjectHolder oh = new ObjectHolder();
-        Projectile p = new Projectile(0.2f,0.2f,0,0,3,null,1);
-        Ship s = new TestedShip(0.5f,0.5f,0,0,2,2,0.0001f,0.0001f,new ObjectHolder(),null,0);
+        Projectile p = new Projectile(0.2f,0.2f,0,0,3,1);
+        Ship s = new TestedShip(0.5f,0.5f,0,0,2,2,0.0001f,0.0001f,0);
         oh.addShip(s);
         oh.addProjectile(p);
         oh.checkProjectileCollisions();
@@ -79,7 +79,7 @@ public class ObjectHolderTest {
     @Test
     public void testCheckShipCollisionsToimiiEiMitaanKollisiota() {
         ObjectHolder oh = new ObjectHolder();
-        Ship s = new TestedShip(0.4f,0.6f,0,0,2,2,0.0005f,0.0005f,new ObjectHolder(),null,0);
+        Ship s = new TestedShip(0.4f,0.6f,0,0,2,2,0.0005f,0.0005f,0);
         oh.addShip(s);
         oh.checkShipCollisions();
         assertEquals("Positio x muuttunut",0.4f,s.getPos().getX(),0.001f);

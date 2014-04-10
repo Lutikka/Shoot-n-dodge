@@ -10,6 +10,9 @@ package Snd.Gamelogic;
  */
 public interface Drawable {
     
+    /**
+     *
+     */
     public void draw();
     
 }

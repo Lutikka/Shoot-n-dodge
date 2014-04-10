@@ -19,24 +19,43 @@ public class Projectile extends MovingObject implements Destroyable{
     int power;
     private boolean alive;
     private int team;
-    static MyGraphics graphics;
+    
 
-    public Projectile(float x, float y, float dx, float dy, int power, MyGraphics graphics, int team) {
-        super(x, y, dx, dy);
-        this.graphics = graphics;
+    /**
+     *
+     * @param x X koordinaatti
+     * @param y Y koordinaatti
+     * @param dx Nopeusvektorin x suuntainen komponentti
+     * @param dy Nopeusvektorin y suuntainen komponentti
+     * @param power osumisvoima
+     * @param team tiimi
+     */
+    public Projectile(float x, float y, float dx, float dy, int power, int team) {
+        super(x, y, dx, dy);     
         this.power=power;
         alive=true;
     }
     
 
+    /**
+     *
+     * @return
+     */
     public int getTeam() {
         return team;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPower() {
         return power;
     }
     
+    /**
+     * Piirtää Projectilen
+     */
     @Override
     public void draw() {
         if(graphics==null)
@@ -52,16 +71,26 @@ public class Projectile extends MovingObject implements Destroyable{
         graphics.drawRectangle(super.getPos(), s, c);     
     }
 
+    /**
+     *
+     */
     @Override
     public void destroy() {
         alive=false;
     }
 
+    /**
+     *
+     */
     @Override
     public void destroyed() {
         //todo
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public boolean isAlive() {
         return alive;

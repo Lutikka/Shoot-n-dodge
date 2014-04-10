@@ -13,8 +13,20 @@ import Snd.MyGraphics;
  */
 public class TestedShip extends Ship{
 
-    public TestedShip(float x, float y, float dx, float dy, int hp, int maxHp, float width, float height, ObjectHolder oh, MyGraphics graphics, int team){           
-        super(x, y, dx, dy, hp, maxHp, width, height, oh, graphics, team);
+    /**
+     *
+     * @param x
+     * @param y
+     * @param dx
+     * @param dy
+     * @param hp
+     * @param maxHp
+     * @param width
+     * @param height
+     * @param team
+     */
+    public TestedShip(float x, float y, float dx, float dy, int hp, int maxHp, float width, float height, int team){           
+        super(x, y, dx, dy, hp, maxHp, width, height, team);
     }
     
     

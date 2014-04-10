@@ -4,7 +4,7 @@
  */
 package Snd.Gamelogic.GameObjects;
 
-import Snd.Gamelogic.GameObjects.MovingObject;
+import Snd.MyGraphics;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -38,7 +38,7 @@ public class MovingObjectTest {
     }
     
     @Test
-    public void KonstruktoriToimiiOikein() {
+    public void KonstruktoriToimiiOikein() {       
         MovingObject mo = new MovingObject(1,2,3,4);
         assertNotNull("Position ei ole initialisoitu",mo.getPos());
         assertNotNull("SpeedVector ei ole initialisoitu",mo.getSpeedVec());

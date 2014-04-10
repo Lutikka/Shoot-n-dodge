@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Snd;
 
 import Snd.Gamelogic.Position;
@@ -18,7 +14,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 
 /**
- * Luokkaa käytetään pelin grafiikan käyttöliittymän piirtämiseen
+ * Luokkaa käytetään pelin grafiikka käyttöliittymän piirtämiseen
  * @author Lutikka
  */
 public class MyGraphics extends JFrame {
@@ -34,6 +30,13 @@ public class MyGraphics extends JFrame {
     private int windowHeight;
     
 
+    /**
+     * Konstruktoi luokan ja initialisoi kaiken tarpeellisen
+     *
+     * @param title Ikkunassa näkyvä nimi
+     * @param windowWidth Ikkunan leveys
+     * @param windowHeight Ikkunan korkeus
+     */
     public MyGraphics(String title, int windowWidth, int windowHeight) {
         super(title);
         this.windowHeight= windowHeight;
@@ -46,12 +49,16 @@ public class MyGraphics extends JFrame {
         canvas.setIgnoreRepaint(true);
         canvas.setSize(windowWidth, windowHeight);
         
-
+        
         super.add(canvas);
         super.pack();
-        super.setVisible(true);
-        super.setFocusable(true);
-
+                
+        canvas.setFocusable(false);
+        this.setFocusable(true);
+        this.setFocusableWindowState(true);
+        this.setAlwaysOnTop(true);
+        this.setVisible(true);
+        
         canvas.createBufferStrategy(2);
         buffer = canvas.getBufferStrategy();
 
@@ -67,16 +74,17 @@ public class MyGraphics extends JFrame {
         background = Color.BLACK;
     }
 
-    /*
-     * Called before drawing each frame
+    /**
+     * Kutsutaan ennen jokaisen kuvan piirtoa
      */
     public void drawingStart() {
         g2d = bi.createGraphics();
         drawBackground();
     }
 
-    /*
-     * Called after drawing each frame
+    /**
+     * Kutsutaan kun kaikki piirtäminen on suoritettu.
+     * Näyttää piirretyn kuvan
      */
     public void drawingEnd() {
         graphics = buffer.getDrawGraphics();
@@ -93,6 +101,9 @@ public class MyGraphics extends JFrame {
         }
     }
 
+    /**
+     * piirtää perus taustavärin
+     */
     private void drawBackground() {
         Color c = g2d.getColor();
         g2d.setColor(background);
@@ -100,6 +111,15 @@ public class MyGraphics extends JFrame {
         g2d.setColor(c);
     }
 
+    /**
+     * Piirtää laation paikkaan Position pos kokoa Size size värillä Color c.
+     * 
+     * Huom peli käyttää float arvoja käyttöliittymä integerejä
+     * 
+     * @param pos pelinsisäinen positio
+     * @param size pelinsisäinen laatikon koko
+     * @param c väri
+     */
     public void drawRectangle(Position pos, Size size, Color c) {
         int x = Math.round((pos.getX() * windowWidth) / xMax);
         int y = Math.round((pos.getY() * windowHeight) / yMax);
@@ -113,13 +133,45 @@ public class MyGraphics extends JFrame {
 
     }
     
+    /**
+     * Piirtää laation käyttäen käyttöliittymän koordinaattisysteemiä
+     * 
+     * @param x X koordinaatti
+     * @param y Y koordinaatti
+     * @param width Laatikon leveys
+     * @param height Laatikon korkeus
+     * @param c Laatikon väri
+     */
     public void drawRect(int x, int y, int width, int height, Color c){
         g2d.setColor(c);
         g2d.drawRect(x, y, width, height);
     }
-
+    
+    /**
+     * Kääntää käyttöliittymän koordinaatit pelinsisäisiksi
+     * 
+     * @param x
+     * @param y
+     * @return float taulukko jossa float[0] on x koordinaatti ja 
+     * float[1] y koordinaatti.
+     */
+    public float[] translateToInGameCoordinates(int x, int y){
+        float i = (x*xMax)/windowWidth;
+        float j = (y*yMax)/windowHeight;
+        return new float[]{i,j};
+    }
+   
+    /**
+     * Asettaa maksimi ikkuna koon pelinsisäisellä koordinaatti systeemillä.
+     * Tarvitaan pelin piirtämiseen ja koordinaatti käännöksiin.
+     * Tulee asettaa ennen pelin piirtämistä
+     * 
+     * @param xMax Maksimi x koko
+     * @param yMax Maksimi y koko
+     */
     public void setInGameCoordinateMaxs(float xMax, float yMax) {
         this.yMax = yMax;
         this.xMax = xMax;
     }
+    
 }

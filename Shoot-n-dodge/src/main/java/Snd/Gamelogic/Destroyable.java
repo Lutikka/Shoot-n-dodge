@@ -10,7 +10,17 @@ package Snd.Gamelogic;
  */
 public interface Destroyable {
     
+    /**
+     *
+     */
     public void destroyed();
+    /**
+     *
+     * @return
+     */
     public boolean isAlive();
+    /**
+     *
+     */
     public void destroy();
 }

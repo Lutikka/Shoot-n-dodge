@@ -20,12 +20,20 @@ public class ObjectHolder {
     private ArrayList<Projectile> projectiles;
     private Check check;
 
+    /**
+     * Konstruktoi luokan
+     */
     public ObjectHolder() {
         this.ships = new ArrayList<Ship>();
         this.projectiles = new ArrayList<Projectile>();
         this.check = new Check(1f, 1f);
     }
 
+    /**
+     * Metodi Projectile kollisioiden tarkistamiseen
+     * @see Check.checkWallCollisions(Projectile)
+     * @see Check.checkProjectileToShipCollisions(Projectile, Ship)
+     */
     public void checkProjectileCollisions() {
         for (Projectile p : projectiles) {
             
@@ -49,6 +57,10 @@ public class ObjectHolder {
         }
     }
     
+    /**
+     * Metodi Ship kollisioiden tarkistamiseen
+     * @see Check.checkWallCollisions(Ship)
+     */
     public void checkShipCollisions() {
         for (Ship ship : ships) {
             boolean tmp[] = check.checkWallCollisions(ship);
@@ -67,6 +79,9 @@ public class ObjectHolder {
         }
     }
 
+    /**
+     * Päivittää pelin tarkistaen kollisiot ja poistaen tuhoutuneen Shipit ja Projectilet
+     */
     public void update() {
         Stack<Projectile> removalStack = new Stack<Projectile>();
         Stack<Ship> removalStack2 = new Stack<Ship>();
@@ -103,6 +118,9 @@ public class ObjectHolder {
         }
     }
 
+    /**
+     * Piirtää pelin
+     */
     public void draw() {
         //draw ships
         for (Ship ship : ships) {
@@ -116,18 +134,34 @@ public class ObjectHolder {
         }
     }
 
+    /**
+     * lisää Shipin peliin
+     * @param s Ship
+     */
     public void addShip(Ship s) {
         this.ships.add(s);
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Ship> getShips() {
         return ships;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Projectile> getProjectiles() {
         return projectiles;
     }
 
+    /**
+     * Lisää Projectilen peliin
+     * @param p Projectile
+     */
     public void addProjectile(Projectile p) {
         this.projectiles.add(p);
     }
