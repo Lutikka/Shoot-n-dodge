@@ -59,9 +59,6 @@ public class Control {
      * Päivittää Controllin suorittaen mahdolliset pelaajan toiminnot
      */
     public void update(){
-        if(!running){
-            start();
-        }
         playerActions();
     }
     
@@ -99,9 +96,17 @@ public class Control {
      * Pelin aloitus metodi... Käytössä toistaiseksi
      */
     public void start(){
-        playerShip= addShip(0.5f,0.8f,0f,0f,1,5,0.04f,0.04f,0);        
-        addShip(0.2f,0.2f,0.0005f,0.001f,1,5,0.04f,0.04f,1);
+        playerShip= addShip(0.5f,0.8f,0f,0f,1,5,0.04f,0.04f,0);                
         running=true;       
+    }
+    
+    /**
+     * 
+     * @return Punaisten Shipien määrä
+     */
+    public int getEnemyShipCount(){
+        int count = game.getObjects().getShips().size()-1;
+        return count;
     }
     
     /**
@@ -240,6 +245,14 @@ public class Control {
      */
     public Ship getPlayerShip() {
         return playerShip;
+    }
+
+    public void setRunning(boolean running) {
+        this.running = running;
+    }
+
+    public Game getGame() {
+        return game;
     }
 
     

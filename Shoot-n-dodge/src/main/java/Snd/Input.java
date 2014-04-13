@@ -64,8 +64,7 @@ public class Input implements KeyListener, MouseListener {
      * Käsittelee kaikki InputEventit käyttäen KeyBinds luokkaa
      * syöte --> toiminto vuorovaikutuksen aikaansaamiseksi
      */
-    public  void HandleInput() {
-        System.out.println(eList.size());
+    public  void HandleInput() {       
         while (!eList.isEmpty()) {
             InputEvent ie = eList.poll();
             int et = eTypeList.poll();
@@ -106,8 +105,7 @@ public class Input implements KeyListener, MouseListener {
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {
-        System.out.println("yeaa");
+    public void mouseClicked(MouseEvent e) {       
         eList.addLast(e);
         eTypeList.addLast(CLICKED);
     }
@@ -125,8 +123,7 @@ public class Input implements KeyListener, MouseListener {
     }
 
     @Override
-    public void mousePressed(MouseEvent e) {
-        System.out.println("aasdasd");
+    public void mousePressed(MouseEvent e) {       
         eList.addLast(e);
         eTypeList.addLast(PRESSED);
     }

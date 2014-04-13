@@ -80,9 +80,9 @@ public class Ship extends MovingObject implements Destroyable {
      */
     public void shootAt(Position pos, float speed, int power) {
         SpeedVector s = new SpeedVector(getPos(), pos, speed);
-        float x = getPos().getX();
-        float y = getPos().getY();
-        Projectile p = new Projectile(x, y, s.getSpeedX(), s.getSpeedY(), power, team);
+        float x = this.getPos().getX();
+        float y = this.getPos().getY();
+        Projectile p = new Projectile(x, y, s.getSpeedX(), s.getSpeedY(), power, this.getTeam());
         oh.addProjectile(p);
     }
 
@@ -127,6 +127,14 @@ public class Ship extends MovingObject implements Destroyable {
      */
     @Override
     public void destroyed() {
+       SpeedVector sv = new SpeedVector(0.002f,0.002f);
+       shoot(sv, 1);
+       sv = new SpeedVector(0.002f,-0.002f);
+       shoot(sv, 1);
+       sv = new SpeedVector(-0.002f,-0.002f);
+       shoot(sv, 1);
+       sv = new SpeedVector(-0.002f,0.002f);
+       shoot(sv, 1);
     }
     
     /**

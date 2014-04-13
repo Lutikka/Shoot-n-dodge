@@ -165,4 +165,9 @@ public class ObjectHolder {
     public void addProjectile(Projectile p) {
         this.projectiles.add(p);
     }
+    
+    public void removeAllObjects(){
+        this.ships = new ArrayList<Ship>();
+        this.projectiles = new ArrayList<Projectile>();
+    }
 }

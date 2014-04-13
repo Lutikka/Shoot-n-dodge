@@ -40,8 +40,8 @@ public class ControlTest {
     public void PlayerMoveDownToimiiTest() {
         MyGraphics graph = new MyGraphics("",2,2);
         Game g = new Game(graph);
-        Control ctrl = new Control(g,graph);
-        ctrl.update();
+        Control ctrl = g.getCtrl();
+        g.update();
         ctrl.update();
         ctrl.getPlayerShip().getSpeedVec().setSpeedX(0f);
         ctrl.getPlayerShip().getSpeedVec().setSpeedY(0f);
@@ -54,8 +54,8 @@ public class ControlTest {
     public void PlayerMoveRightToimiiTest() {
         MyGraphics graph = new MyGraphics("",2,2);
         Game g = new Game(graph);
-        Control ctrl = new Control(g,graph);
-        ctrl.update();
+        Control ctrl = g.getCtrl();
+        g.update();
         ctrl.update();
         ctrl.getPlayerShip().getSpeedVec().setSpeedX(0f);
         ctrl.getPlayerShip().getSpeedVec().setSpeedY(0f);
@@ -68,8 +68,8 @@ public class ControlTest {
     public void PlayerMoveUpToimiiTest() {
         MyGraphics graph = new MyGraphics("",2,2);
         Game g = new Game(graph);
-        Control ctrl = new Control(g,graph);
-        ctrl.update();
+        Control ctrl = g.getCtrl();
+        g.update();
         ctrl.update();
         ctrl.getPlayerShip().getSpeedVec().setSpeedX(0f);
         ctrl.getPlayerShip().getSpeedVec().setSpeedY(0f);
@@ -82,8 +82,8 @@ public class ControlTest {
     public void PlayerMoveLeftToimiiTest() {
         MyGraphics graph = new MyGraphics("",2,2);
         Game g = new Game(graph);
-        Control ctrl = new Control(g,graph);
-        ctrl.update();
+        Control ctrl = g.getCtrl();
+        g.update();
         ctrl.update();
         ctrl.getPlayerShip().getSpeedVec().setSpeedX(0f);
         ctrl.getPlayerShip().getSpeedVec().setSpeedY(0f);
@@ -96,11 +96,11 @@ public class ControlTest {
     public void PlayerShootAtToimiiTest() {
         MyGraphics graph = new MyGraphics("",2,2);
         Game g = new Game(graph);
-        Control ctrl = new Control(g,graph);
-        ctrl.update();
+        Control ctrl = g.getCtrl();
+        g.update();
         int counter = g.getObjects().getProjectiles().size();        
-        ctrl.playerShootAt(0.4f, 0.4f);
+        ctrl.playerShootAt(0.4f, 0.1f);
         ctrl.update();
-        assertTrue("Pelaajan alus ei liiku oikeaan suuntaan tai ollenkaan", g.getObjects().getProjectiles().size()>counter); 
+        assertTrue("pelaajan alus ei ammu vaikka pitäisi", g.getObjects().getProjectiles().size()>counter); 
     }
 }

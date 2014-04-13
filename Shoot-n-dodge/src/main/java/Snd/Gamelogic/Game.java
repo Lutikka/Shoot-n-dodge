@@ -18,14 +18,18 @@ public class Game {
     private ObjectHolder objects;
     private AI ai;
     private Control ctrl;
+    private float boundX;
+    private float boundY;
     
     /**
      *
      * @param graphics pelin piirtämiseen käytettävä grafiikka
      */
     public Game(MyGraphics graphics){
+        boundX=1f;
+        boundY=1f;
         objects = new ObjectHolder();
-        graphics.setInGameCoordinateMaxs(1f, 1f);
+        graphics.setInGameCoordinateMaxs(boundX, boundY);
         MovingObject.setGraphics(graphics);
         Ship.setOh(objects);
         ctrl = new Control(this,graphics);
@@ -61,6 +65,14 @@ public class Game {
      */
     public ObjectHolder getObjects() {
         return objects;
+    }
+
+    public float getBoundX() {
+        return boundX;
+    }
+
+    public float getBoundY() {
+        return boundY;
     }
     
 }

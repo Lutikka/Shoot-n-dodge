@@ -33,6 +33,7 @@ public class Projectile extends MovingObject implements Destroyable{
     public Projectile(float x, float y, float dx, float dy, int power, int team) {
         super(x, y, dx, dy);     
         this.power=power;
+        this.team=team;
         alive=true;
     }
     
