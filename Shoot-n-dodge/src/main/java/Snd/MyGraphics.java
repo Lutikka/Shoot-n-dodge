@@ -9,9 +9,12 @@ import java.awt.Graphics2D;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
+import java.awt.Rectangle;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 /**
  * Luokkaa käytetään pelin grafiikka käyttöliittymän piirtämiseen
@@ -28,7 +31,7 @@ public class MyGraphics extends JFrame {
     private float yMax;
     private int windowWidth;
     private int windowHeight;
-    
+    private Canvas canvas;
 
     /**
      * Konstruktoi luokan ja initialisoi kaiken tarpeellisen
@@ -42,22 +45,25 @@ public class MyGraphics extends JFrame {
         this.windowHeight= windowHeight;
         this.windowWidth= windowWidth;
         super.setIgnoreRepaint(true);
-        super.setSize(windowWidth, windowHeight);
+        this.setSize(windowWidth, windowHeight);
+        super.setResizable(false);
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        Canvas canvas = new Canvas();
+        
+
+        
+        canvas = new Canvas();
         canvas.setIgnoreRepaint(true);
-        canvas.setSize(windowWidth, windowHeight);
-        
-        
-        super.add(canvas);
+        canvas.setSize(windowWidth, windowHeight);       
+
+        this.add(canvas);
         super.pack();
-                
-        canvas.setFocusable(false);
-        this.setFocusable(true);
-        this.setFocusableWindowState(true);
-        this.setAlwaysOnTop(true);
+        
+        canvas.setFocusable(true);
+        canvas.enableInputMethods(true);
+               
         this.setVisible(true);
+        
         
         canvas.createBufferStrategy(2);
         buffer = canvas.getBufferStrategy();
@@ -72,6 +78,7 @@ public class MyGraphics extends JFrame {
         graphics = null;
         g2d = null;
         background = Color.BLACK;
+       
     }
 
     /**
@@ -83,7 +90,7 @@ public class MyGraphics extends JFrame {
     }
 
     /**
-     * Kutsutaan kun kaikki piirtäminen on suoritettu.
+     * Kutsutaan kun kuvan piirtäminen on suoritettu.
      * Näyttää piirretyn kuvan
      */
     public void drawingEnd() {
@@ -134,7 +141,7 @@ public class MyGraphics extends JFrame {
     }
     
     /**
-     * Piirtää laation käyttäen käyttöliittymän koordinaattisysteemiä
+     * Piirtää laation käyttäen käyttöliittymän koordinaattijärjestelmää
      * 
      * @param x X koordinaatti
      * @param y Y koordinaatti
@@ -162,7 +169,7 @@ public class MyGraphics extends JFrame {
     }
    
     /**
-     * Asettaa maksimi ikkuna koon pelinsisäisellä koordinaatti systeemillä.
+     * Asettaa maksimi ikkuna koon pelinsisäisellä koordinaattijärjestelmällä.
      * Tarvitaan pelin piirtämiseen ja koordinaatti käännöksiin.
      * Tulee asettaa ennen pelin piirtämistä
      * 
@@ -174,4 +181,7 @@ public class MyGraphics extends JFrame {
         this.xMax = xMax;
     }
     
+    public Canvas getCanvas(){
+        return canvas;
+    }
 }

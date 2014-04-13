@@ -107,6 +107,7 @@ public class Input implements KeyListener, MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        System.out.println("yeaa");
         eList.addLast(e);
         eTypeList.addLast(CLICKED);
     }
@@ -125,7 +126,7 @@ public class Input implements KeyListener, MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        System.out.println("jea");
+        System.out.println("aasdasd");
         eList.addLast(e);
         eTypeList.addLast(PRESSED);
     }

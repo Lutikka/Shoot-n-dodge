@@ -5,6 +5,7 @@
 package Snd;
 
 import Snd.Gamelogic.Game;
+import java.awt.Component;
 
 /**
  * Luokka pitää sisällään kaikki peliin liittyvät komponentit ja hoitaa
@@ -52,8 +53,14 @@ public class Main {
         //init Input
         KeyBinds kb= new KeyBinds(game.getCtrl());
         input = new Input(kb);
-        graphics.addKeyListener(input);
-        graphics.addMouseListener(input);
+        graphics.getCanvas().addMouseListener(input);
+        graphics.getCanvas().addKeyListener(input);
+        
+        
+//        for (Component c : graphics.getComponents()) {
+//            System.out.println(c.getName());
+//        }
+        ;
         
     }
     
@@ -104,7 +111,7 @@ public class Main {
             draw();
         
             try{
-                Thread.sleep(20);
+                Thread.sleep(10);
             }catch(InterruptedException e){
                 
             }

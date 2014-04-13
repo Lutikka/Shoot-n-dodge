@@ -37,18 +37,27 @@ public class KeyBinds {
         if (key == KeyEvent.VK_W) {
             if (et == Input.PRESSED) {
                 c.playerMoveUp();
+            }else if (et == Input.RELEASED) {
+                c.playerStopMoveUp();
             } 
+            
         } else if (key == KeyEvent.VK_S) {
             if (et == Input.PRESSED) {
                 c.playerMoveDown();
+            }else if (et == Input.RELEASED) {
+                c.playerStopMoveDown();
             } 
         } else if (key == KeyEvent.VK_A) {
             if (et == Input.PRESSED) {
                 c.playerMoveLeft();
+            }else if (et == Input.RELEASED) {
+                c.playerStopMoveLeft();
             } 
         } else if (key == KeyEvent.VK_D) {
             if (et == Input.PRESSED) {                
                 c.playerMoveRight();
+            }else if (et == Input.RELEASED) {
+                c.playerStopMoveRight();
             } 
         }
 

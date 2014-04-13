@@ -47,7 +47,7 @@ public class Control {
      * Initialisoi asioita
      */
     private void initPlayerVariables(){
-        maxSpeed=0.002f;
+        maxSpeed=0.005f;
         shooting=false;
         movingLeft=false;
         movingRight=false;
@@ -71,7 +71,7 @@ public class Control {
     private void playerActions(){
         if(isRunning()){  
             if(shooting){
-            playerShip.shootAt(target, 0.02f, 1);
+            playerShip.shootAt(target, 0.005f, 1);
             shooting=false;
             }
             if(!movingLeft&&!movingRight){
@@ -81,20 +81,16 @@ public class Control {
                 playerShip.getSpeedVec().setSpeedY(0);
             }
             if(movingLeft){
-                playerShip.getSpeedVec().setSpeedX(-maxSpeed);
-                movingLeft=false;
+                playerShip.getSpeedVec().setSpeedX(-maxSpeed);             
             }
             if(movingRight){
-                playerShip.getSpeedVec().setSpeedX(maxSpeed);
-                movingRight=false;
+                playerShip.getSpeedVec().setSpeedX(maxSpeed);               
             }            
             if(movingUp){
-                playerShip.getSpeedVec().setSpeedY(-maxSpeed);
-                movingUp=false;
+                playerShip.getSpeedVec().setSpeedY(-maxSpeed);            
             }
             if(movingDown){
                 playerShip.getSpeedVec().setSpeedY(maxSpeed);
-                movingDown=false;
             }
         }
     }
@@ -103,12 +99,29 @@ public class Control {
      * Pelin aloitus metodi... Käytössä toistaiseksi
      */
     public void start(){
-        playerShip= new Ship(0.5f,0.8f,0f,0f,1,5,0.04f,0.04f,0);
-        game.getObjects().addShip(playerShip);
-        //test
-        game.getObjects().addShip(new Ship(0.2f,0.2f,0.001f,0.001f,1,5,0.04f,0.04f,1));
-        running=true;
-        playerShootAt(0.22f,0.2f);
+        playerShip= addShip(0.5f,0.8f,0f,0f,1,5,0.04f,0.04f,0);        
+        addShip(0.2f,0.2f,0.0005f,0.001f,1,5,0.04f,0.04f,1);
+        running=true;       
+    }
+    
+    /**
+     * Lisää peliin Ship objectin
+     * 
+     * @param x x pos
+     * @param y y pos
+     * @param dx x speed
+     * @param dy y speed
+     * @param hp
+     * @param maxHp
+     * @param width
+     * @param height
+     * @param team
+     * @return 
+     */
+    public Ship addShip(float x, float y, float dx, float dy,int hp, int maxHp,float width, float height,int team){
+        Ship s = new Ship(x,y,dx,dy,hp,maxHp,width,height,team);
+        game.getObjects().addShip(s);
+        return s;
     }
     
     /**
@@ -124,7 +137,7 @@ public class Control {
     }
     
     /**
-     * Laittaa pelaajan aluksen ampumaan käyttöliittymän koordinaatti systeemiä
+     * Laittaa pelaajan aluksen ampumaan käyttöliittymän koordinaattijärjestelmää
      * käyttäen pisteeseen (x,y).
      * 
      * @param x X koordinaatti
@@ -175,6 +188,41 @@ public class Control {
         if(isRunning()){
             movingUp=false;
             movingDown=true;
+        }   
+    }
+    /**
+     *Metodi pelaajan liikuttamiseen vasen
+     */
+    public void playerStopMoveLeft(){
+        if(isRunning()){         
+            movingLeft=false;
+        }   
+    }
+    
+    /**
+     *Metodi pelaajan liikuttamiseen ylös
+     */
+    public void playerStopMoveUp(){
+        if(isRunning()){
+            movingUp=false;
+        }   
+    }
+    
+    /**
+     *Metodi pelaajan liikuttamiseen oikealle
+     */
+    public void playerStopMoveRight(){
+        if(isRunning()){
+            movingRight=false;
+        }   
+    }
+    
+    /**
+     *Metodi pelaajan liikuttamiseen alas
+     */
+    public void playerStopMoveDown(){
+        if(isRunning()){        
+            movingDown=false;
         }   
     }
 
