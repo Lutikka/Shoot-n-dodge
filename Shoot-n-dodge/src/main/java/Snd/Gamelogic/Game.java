@@ -5,7 +5,6 @@
 package Snd.Gamelogic;
 
 import Snd.Gamelogic.GameObjects.MovingObject;
-import Snd.Gamelogic.GameObjects.Projectile;
 import Snd.Gamelogic.GameObjects.Ship;
 import Snd.MyGraphics;
 
@@ -31,6 +30,7 @@ public class Game {
         objects = new ObjectHolder();
         graphics.setInGameCoordinateMaxs(boundX, boundY);
         MovingObject.setGraphics(graphics);
+        VisibleCountdownTimer.setGraphics(graphics);
         Ship.setOh(objects);
         ctrl = new Control(this,graphics);
         ai= new AI(ctrl);
@@ -56,7 +56,7 @@ public class Game {
      */
     public void draw(){
         objects.draw();
-        
+        ai.draw();
     }
 
     /**

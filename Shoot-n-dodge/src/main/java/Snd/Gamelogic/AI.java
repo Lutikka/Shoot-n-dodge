@@ -4,6 +4,8 @@
  */
 package Snd.Gamelogic;
 
+import java.util.Timer;
+
 /**
  *a
  * @author Lutikka
@@ -11,13 +13,40 @@ package Snd.Gamelogic;
 public class AI{
     
     private Control ctrl;
-    private int nextSpawn;
+    private int nextSpawnAmount;
+    private int lastCount;
+    private VisibleCountdownTimer timer;
     /**
      *
      * @param ctrl
      */
     public AI(Control ctrl) {
         this.ctrl = ctrl;
+        
+    }
+    
+    /**
+     * 
+     */
+    public void draw(){
+        if(timer!=null)
+        timer.draw();
+        
+    }
+    public void checkEndConditions(){
+        if(!ctrl.getPlayerShip().isAlive())
+            ctrl.setRunning(false);
+        if(timer.getTimer()<0)
+            ctrl.setRunning(false);
+    }
+    
+    public void start(){
+            ctrl.getGame().getObjects().removeAllObjects();
+            ctrl.start();
+            timer = new VisibleCountdownTimer(40,0.5f,0.5f);
+            ctrl.addShip(0.5f,0.2f,0.0000f,0.000f,1,5,0.10f,0.10f,1);
+            nextSpawnAmount=2;
+            lastCount=1;
     }
     
     /**
@@ -25,22 +54,21 @@ public class AI{
      */
     public void update(){
         if(!ctrl.isRunning()){
-            ctrl.getGame().getObjects().removeAllObjects();
-            ctrl.start();
-            ctrl.addShip(0.5f,0.2f,0.0000f,0.000f,1,5,0.10f,0.10f,1);
-            nextSpawn=2;
+            start();
         }
-        if(!ctrl.getPlayerShip().isAlive())
-            ctrl.setRunning(false);
+        checkEndConditions();
         
         if(ctrl.isRunning()){
-            if(ctrl.getEnemyShipCount()==0){
-                for (int i = 0; i < nextSpawn; i++) {
+            timer.addMillis((lastCount-ctrl.getEnemyShipCount())*500);
+            lastCount=ctrl.getEnemyShipCount();
+            if(ctrl.getEnemyShipCount()==0){               
+                for (int i = 0; i < nextSpawnAmount; i++) {
                     spawnShipRandomly();
                 }
-                nextSpawn=nextSpawn*2;
-                System.out.println(nextSpawn);
+                lastCount=nextSpawnAmount;
+                nextSpawnAmount=nextSpawnAmount*2;             
             }
+            timer.update();
         }
         ctrl.update();
     }

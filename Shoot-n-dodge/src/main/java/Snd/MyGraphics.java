@@ -4,17 +4,15 @@ import Snd.Gamelogic.Position;
 import Snd.Gamelogic.Size;
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
-import java.awt.Rectangle;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 /**
  * Luokkaa käytetään pelin grafiikka käyttöliittymän piirtämiseen
@@ -78,7 +76,7 @@ public class MyGraphics extends JFrame {
         graphics = null;
         g2d = null;
         background = Color.BLACK;
-       
+        
     }
 
     /**
@@ -155,6 +153,21 @@ public class MyGraphics extends JFrame {
     }
     
     /**
+     * Piirtää tekstiä 
+     * @param x
+     * @param y
+     * @param text 
+     */
+    public void drawString(float x, float y, String text){
+        int i = Math.round((x * windowWidth) / xMax);
+        int j = Math.round((y * windowHeight) / yMax);
+        int halfWidth= text.length()*3;
+        int halfHeight= 4;
+        g2d.setFont(new Font(Font.DIALOG,Font.PLAIN,10));
+        g2d.setColor(Color.RED);
+        g2d.drawString(text, i-halfWidth, j-halfHeight);
+      }
+    /**
      * Kääntää käyttöliittymän koordinaatit pelinsisäisiksi
      * 
      * @param x
@@ -180,6 +193,8 @@ public class MyGraphics extends JFrame {
         this.yMax = yMax;
         this.xMax = xMax;
     }
+    
+  
     
     public Canvas getCanvas(){
         return canvas;

@@ -50,20 +50,14 @@ public class Main {
         graphics = new MyGraphics("Shoot-n-Dodge",800,600);
         //init Gamelogic
         game = new Game(graphics);  
-        //init Input
+        //init Inputss
         KeyBinds kb= new KeyBinds(game.getCtrl());
         input = new Input(kb);
         graphics.getCanvas().addMouseListener(input);
         graphics.getCanvas().addKeyListener(input);
         
-        
-//        for (Component c : graphics.getComponents()) {
-//            System.out.println(c.getName());
-//        }
-        ;
-        
-    }
-    
+        }
+              
     /**
      * hoitaa syötteen käsittelyn ja pelin tilan päivittämisen
      */

@@ -14,7 +14,9 @@ Snd\Gamelogic\Updateable.class
 Snd\Input.class
 Snd\Gamelogic\Position.class
 Snd\Gamelogic\AI.class
+Snd\Gamelogic\VisibleCountdownTimer.class
 Snd\Gamelogic\Game.class
+Snd\Gamelogic\CountdownTimer.class
 Snd\Gamelogic\Check.class
 Snd\Gamelogic\GameObjects\Ship.class
 Snd\Gamelogic\Drawable.class
