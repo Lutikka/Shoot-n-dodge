@@ -13,16 +13,35 @@ import Snd.MyGraphics;
 import java.awt.Color;
 
 /**
- *
+ * Alus-peliobjektin luokka
  * @author Lutikka
  */
 public class Ship extends MovingObject implements Destroyable {
-
+    
+    /**
+     * totuusarvo siitä onko alus elossa
+     */
     private boolean alive;
+    /**
+     * osumapisteet
+     */
     private int hp;
+    /**
+     * osumapiste maksimi arvo
+     */
     private int maxHp;
+    /**
+     * aluksen koko
+     */
     private Size size;
+    /**
+     * aluksen tiimi
+     */
     private int team;
+    /**
+     * luokka jossa alukset ja ammukset ovat.
+     * Käytetään ammusten luomiseen
+     */
     static ObjectHolder oh;
 
     /**
@@ -50,7 +69,7 @@ public class Ship extends MovingObject implements Destroyable {
     /**
      * Asettaa staattisen ObjectHolderin.
      * Tämä tulee asettaa ennen Shipin muiden metodien kutsumista.
-     * @param oh
+     * @param oh ObjectHolder
      */
     public final static void setOh(ObjectHolder oh) {
         Ship.oh = oh;
@@ -87,24 +106,17 @@ public class Ship extends MovingObject implements Destroyable {
     }
 
     /**
-     *
+     * palauttaa aluksen tiimin
      * @return
      */
     public int getTeam() {
         return team;
     }
 
-    /**
-     *
-     * @return
-     */
     @Override
     public boolean isAlive() {
         return alive;
     }
-    /*
-     * Use negative values for subtraction
-     */
 
     /**
      * Muuttaa Shipin hp arvoa int hp verran.
@@ -122,9 +134,7 @@ public class Ship extends MovingObject implements Destroyable {
         }
 
     }
-    /**
-     *
-     */
+    
     @Override
     public void destroyed() {
        SpeedVector sv = new SpeedVector(0.002f,0.002f);
@@ -137,9 +147,6 @@ public class Ship extends MovingObject implements Destroyable {
        shoot(sv, 1);
     }
     
-    /**
-     * Called when this ship is to be removed from game
-     */
     @Override
     public void destroy() {
         alive = false;
@@ -157,7 +164,6 @@ public class Ship extends MovingObject implements Destroyable {
     /**
      * piirtää aluksen
      */
-    @Override
     public void draw() {
         if(graphics==null)
             return;
@@ -172,7 +178,7 @@ public class Ship extends MovingObject implements Destroyable {
 
     /**
      *
-     * @return
+     * @return maxHP
      */
     public int getMaxHp() {
         return maxHp;
@@ -180,7 +186,7 @@ public class Ship extends MovingObject implements Destroyable {
 
     /**
      *
-     * @return
+     * @return hp
      */
     public int getHp() {
         return hp;
@@ -188,7 +194,7 @@ public class Ship extends MovingObject implements Destroyable {
 
     /**
      *
-     * @return
+     * @return size
      */
     public Size getSize() {
         return size;

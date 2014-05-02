@@ -33,7 +33,7 @@ public class Size {
 
     /**
      *
-     * @return
+     * @return height
      */
     public float getHeight() {
         return height;
@@ -49,7 +49,7 @@ public class Size {
 
     /**
      *
-     * @return
+     * @return width
      */
     public float getWidth() {
         return width;

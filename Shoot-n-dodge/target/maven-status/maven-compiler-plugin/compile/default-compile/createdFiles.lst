@@ -1,7 +1,6 @@
 Snd\Main.class
 Snd\MyGraphics.class
 Snd\Gamelogic\Size.class
-Snd\Gamelogic\GameObjects\IShip.class
 Snd\Gamelogic\SpeedVector.class
 Snd\Gamelogic\GameObjects\MovingObject.class
 Snd\Gamelogic\ObjectHolder.class
@@ -10,7 +9,6 @@ Snd\Gamelogic\Control.class
 Snd\Gamelogic\GameObjects\TestedShip.class
 Snd\KeyBinds.class
 Snd\Gamelogic\GameObjects\Projectile.class
-Snd\Gamelogic\Updateable.class
 Snd\Input.class
 Snd\Gamelogic\Position.class
 Snd\Gamelogic\AI.class
@@ -19,4 +17,3 @@ Snd\Gamelogic\Game.class
 Snd\Gamelogic\CountdownTimer.class
 Snd\Gamelogic\Check.class
 Snd\Gamelogic\GameObjects\Ship.class
-Snd\Gamelogic\Drawable.class

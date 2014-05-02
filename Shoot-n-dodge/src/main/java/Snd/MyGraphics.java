@@ -20,15 +20,35 @@ import javax.swing.JFrame;
  */
 public class MyGraphics extends JFrame {
 
+    /**
+     * freimin bufferointiin
+     */
     private BufferStrategy buffer;
+    /**
+     * näkyvä kuva
+     */
     private BufferedImage bi;
+    /**
+     * grafiikan piirtämiseen
+     */
     private Graphics2D g2d;
+    /**
+     * grafiikan piirtämiseen
+     */
     private Graphics graphics;
+    /**
+     * taustan väri
+     */
     private Color background;
+    
     private float xMax;
     private float yMax;
+    
     private int windowWidth;
     private int windowHeight;
+    /**
+     * piirtoalusta grafiikan piirtämiseen
+     */
     private Canvas canvas;
 
     /**
@@ -47,25 +67,18 @@ public class MyGraphics extends JFrame {
         super.setResizable(false);
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        
-
-        
         canvas = new Canvas();
         canvas.setIgnoreRepaint(true);
         canvas.setSize(windowWidth, windowHeight);       
-
-        this.add(canvas);
-        super.pack();
-        
         canvas.setFocusable(true);
         canvas.enableInputMethods(true);
-               
-        this.setVisible(true);
         
+        this.add(canvas);
+        super.pack();
+        this.setVisible(true);
         
         canvas.createBufferStrategy(2);
         buffer = canvas.getBufferStrategy();
-
         GraphicsEnvironment graphEnv = GraphicsEnvironment.getLocalGraphicsEnvironment();
         GraphicsDevice graphDevice = graphEnv.getDefaultScreenDevice();
         GraphicsConfiguration graphConfig = graphDevice.getDefaultConfiguration();

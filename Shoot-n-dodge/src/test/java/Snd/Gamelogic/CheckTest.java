@@ -99,6 +99,18 @@ public class CheckTest {
     }
     
     @Test
+    public void testShipWallCollisionIlmanKollisiota() {
+        
+        Ship s = new TestedShip(0.50f,0.50f,0,0,0,0,0.049f,0.049f,0);
+        boolean tmp[] = c.checkWallCollisions(s);
+        assertFalse("vasemman seinän kollisio tapahtunut", tmp[0]);
+        assertFalse("ylä seinän kollisio tapahtunut", tmp[1]);
+        assertFalse("oikean seinän kollision tapahtunut", tmp[2]);
+        assertFalse("ala seinän kollision tapahtunut", tmp[3]);
+        
+    }
+
+    @Test
     public void testShipWallCollisionYlaJaVasenKollisiolla() {
         
         Ship s = new TestedShip(0.020f,0.020f,0,0,0,0,0.049f,0.049f,0);
@@ -119,7 +131,7 @@ public class CheckTest {
     
     @Test
     public void testProjectileToShipCollisionOikeaKollisiolla() {
-        Projectile p = new Projectile(0.50f,0.50f,0,0,0,1);
+        Projectile p = new Projectile(0.50f,0.495f,0,0,0,1);
         Ship s = new TestedShip(0.52f,0.50f,0,0,0,0,0.042f,0.042f,0);
         assertTrue("oikea kollisiota ei tapahtunut",c.checkProjectileToShipCollisions(p, s));
     }
@@ -136,6 +148,12 @@ public class CheckTest {
         Projectile p = new Projectile(0.50f,0.50f,0,0,0,1);
         Ship s = new TestedShip(0.50f,0.52f,0,0,0,0,0.042f,0.042f,0);
         assertTrue("ala kollisiota ei tapahtunut",c.checkProjectileToShipCollisions(p, s));
+    }
+    @Test
+    public void testProjectileToShipCollisionEiKollisiolla() {
+        Projectile p = new Projectile(0.20f,0.20f,0,0,0,1);
+        Ship s = new TestedShip(0.50f,0.52f,0,0,0,0,0.042f,0.042f,0);
+        assertFalse("Kollisio tapahtui vaikkei pitänyt",c.checkProjectileToShipCollisions(p, s));
     }
     
 }

@@ -6,8 +6,6 @@ package Snd.Gamelogic.GameObjects;
 
 import Snd.Gamelogic.SpeedVector;
 import Snd.Gamelogic.Position;
-import Snd.Gamelogic.Drawable;
-import Snd.Gamelogic.Updateable;
 import Snd.MyGraphics;
 
 /**
@@ -18,12 +16,18 @@ import Snd.MyGraphics;
  * 
  * @author Lutikka
  */
-public class MovingObject implements Updateable, Drawable {
+public class MovingObject {
     
+    /**
+     * objectin paikka pelikentällä
+     */
      private Position pos; 
+     /**
+      * objectin nopeusvektori. käyetään liikkumiseen
+      */
      private SpeedVector speedVec;
      /**
-     * Objectin piirtämiseen
+     * Objectin piirtämiseen käytettävä instanssi luokasta MyGraphics
      */
     public static MyGraphics graphics;
 
@@ -52,17 +56,15 @@ public class MovingObject implements Updateable, Drawable {
     }
 
     /**
-     * Overraidattava metodi. Piirtää objectin
+     *  Piirtää objectin
      */
-    @Override
     public void draw() {
        //
     }
 
     /**
-     *
+     * päivittää pelin
      */
-    @Override
     public void update() {
        pos.update();
     }

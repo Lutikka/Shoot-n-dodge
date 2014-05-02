@@ -18,8 +18,7 @@ public class KeyBinds {
 
     /**
      *
-     * @param c Game luokasta saatu Control luokka.
-     *
+     * @param c Game luokasta saatava Control luokka.
      */
     public KeyBinds(Control c) {
         this.c = c;

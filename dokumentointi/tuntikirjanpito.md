@@ -28,5 +28,9 @@ Ajankäyttö
 
 6h: luokkakaavioiden uusiminen, sekvenssikaaviot, javadoc, koodinmuokkaus
 
+2.5.2014 mennessä
 
-yhteensä: 28.5 h
+8h: lopullista kaiken fixausta
+
+
+yhteensä: 36.5 h

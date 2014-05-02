@@ -7,18 +7,30 @@ package Snd.Gamelogic;
 import java.util.Timer;
 
 /**
- *a
+ * Pelin tekoäly/ohjaus
  * @author Lutikka
  */
 public class AI{
     
+    /**
+     * pelin kontrolli luokka
+     */
     private Control ctrl;
+    /**
+     * kuinka paljon seuraavalla kerralla tehdään aluksia
+     */
     private int nextSpawnAmount;
+    /**
+     * aluksia viime tarkistuksella
+     */
     private int lastCount;
+    /**
+     * näkyvä ajastin jäljellä olevasta peli ajasta
+     */
     private VisibleCountdownTimer timer;
     /**
-     *
-     * @param ctrl
+     * Konstruktori
+     * @param ctrl Control
      */
     public AI(Control ctrl) {
         this.ctrl = ctrl;
@@ -26,13 +38,17 @@ public class AI{
     }
     
     /**
-     * 
+     * Piirtää timerin yms.
      */
     public void draw(){
         if(timer!=null)
         timer.draw();
         
     }
+    
+    /**
+     * Tarkistaa onko peli päättynyt
+     */
     public void checkEndConditions(){
         if(!ctrl.getPlayerShip().isAlive())
             ctrl.setRunning(false);
@@ -40,6 +56,9 @@ public class AI{
             ctrl.setRunning(false);
     }
     
+    /**
+     * Aloittaa uuden pelin
+     */
     public void start(){
             ctrl.getGame().getObjects().removeAllObjects();
             ctrl.start();
@@ -50,7 +69,7 @@ public class AI{
     }
     
     /**
-     *
+     * Päivittää AI:n
      */
     public void update(){
         if(!ctrl.isRunning()){
@@ -73,6 +92,9 @@ public class AI{
         ctrl.update();
     }
     
+    /**
+     * Luo vihollis aluksen satunnaiseen paikkaan pelialueella
+     */
     public void spawnShipRandomly(){
         float x = (float)Math.random();
         float y = (float)Math.random();

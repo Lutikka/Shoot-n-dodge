@@ -13,7 +13,14 @@ import Snd.Gamelogic.GameObjects.Ship;
  * @author Lutikka
  */
 public final class Check {
+    /**
+     * arvo seinien x koordinaateille pelissä
+     */
     private float floatMaxX;
+    
+    /**
+     * arvo seinien y koordinaateille pelissä
+     */
     private float floatMaxY;
     
     /**
@@ -39,7 +46,7 @@ public final class Check {
      * Tarkistaa kaikki Projectilen ja pelin seinien väliset kollisiot
      * 
      * @param p Tarkistettava projektiili
-     * @return palauttaa boolean tauluko kollisioista. True arvo tarkoittaa 
+     * @return tmp palauttaa boolean tauluko kollisioista. True arvo tarkoittaa 
      * että kollisio tapahtui.
      * @0 left wall
      * @1 upper wall
@@ -63,7 +70,7 @@ public final class Check {
      * Tarkistaa kaikki Shipin ja pelin seinien väliset kollisiot
      * 
      * @param s Tarkistettava Ship
-     * @return palauttaa boolean tauluko kollisioista. True arvo tarkoittaa 
+     * @return tmp palauttaa boolean tauluko kollisioista. True arvo tarkoittaa 
      * että kollisio tapahtui.
      * @0 left wall
      * @1 upper wall
@@ -131,7 +138,6 @@ public final class Check {
     
     /**
      * Ei käytössä.
-     * Ei tee mitään.
      * @param s1
      * @param s2
      * @return
@@ -160,7 +166,7 @@ public final class Check {
 
     /**
      *
-     * @return
+     * @return floatMaxX
      */
     public float getFloatMaxX() {
         return floatMaxX;
@@ -168,7 +174,7 @@ public final class Check {
 
     /**
      *
-     * @return
+     * @return floatMaxY
      */
     public float getFloatMaxY() {
         return floatMaxY;

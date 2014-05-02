@@ -16,8 +16,17 @@ import java.util.Stack;
  */
 public class ObjectHolder {
 
+    /**
+     * Tietorakenne jossa ovat pelin alukset
+     */
     private ArrayList<Ship> ships;
+    /**
+     * Tietorakenne jossa ovat pelin ammukset
+     */
     private ArrayList<Projectile> projectiles;
+    /**
+     * Joihinkin tarkistuksiin käytettävä instanssi Check luokasta
+     */
     private Check check;
 
     /**

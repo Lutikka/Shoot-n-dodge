@@ -10,7 +10,13 @@ package Snd.Gamelogic;
  */
 public class SpeedVector {
 
+    /**
+     * Nopeusvektorin x komponentti
+     */
     float speedX;
+     /**
+     * Nopeusvektorin y komponentti
+     */
     float speedY;
             
     /**

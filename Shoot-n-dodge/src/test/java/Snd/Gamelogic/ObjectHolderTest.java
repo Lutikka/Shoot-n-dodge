@@ -68,11 +68,27 @@ public class ObjectHolderTest {
         ObjectHolder oh = new ObjectHolder();
         Projectile p = new Projectile(0.2f,0.2f,0,0,3,1);
         Ship s = new TestedShip(0.5f,0.5f,0,0,2,2,0.0001f,0.0001f,0);
+        Ship s1 = new TestedShip(0.2f,0.2f,0,0,2,2,0.002f,0.002f,1);
         oh.addShip(s);
         oh.addProjectile(p);
         oh.checkProjectileCollisions();
         assertTrue("Projectile tuhoutunut vaikkei pitänyt",p.isAlive());
         assertTrue("Ship tuhoutunut vaikkei pitänyt",s.isAlive());
+        assertTrue("Ship 2 tuhoutunut vaikkei pitänyt",s1.isAlive());
+        
+    }
+    
+    @Test
+    public void testShipRemoval() {
+        ObjectHolder oh = new ObjectHolder();
+        Ship s = new TestedShip(0.5f,0.5f,0,0,2,2,0.0001f,0.0001f,0);
+        Ship s1 = new TestedShip(0.2f,0.2f,0,0,2,2,0.002f,0.002f,1);
+        oh.addShip(s);
+        oh.addShip(s1);
+        s.destroy();
+        s1.destroy();
+        oh.update();
+        assertEquals("shippejä jäi eloon vaikka tuhottiin",0,oh.getShips().size());
         
     }
     

@@ -4,14 +4,19 @@
  */
 package Snd.Gamelogic;
 
-import Snd.Gamelogic.Updateable;
 
 /**
  * Pitää sisällään tiedon Objektin positiosta pelissä
  * @author Lutikka
  */
-public class Position implements Updateable {
+public class Position{
+    /**
+     * paikan x koordinaatti
+     */
     private float x;
+    /**
+     * paikan y koordinaatti
+     */
     private float y;
     /**
      * Nopeusvektori liikkumiseen
@@ -45,7 +50,6 @@ public class Position implements Updateable {
     /**
      * Päivittää position käyttäen SpeedVectoria, jos sellainen on lisätty
      */
-    @Override
     public void update() {
         if(speedVec!=null){
         setX(this.x + speedVec.getSpeedX());
@@ -97,7 +101,7 @@ public class Position implements Updateable {
 
     /**
      *
-     * @return
+     * @return speedVec
      */
     public SpeedVector getSpeedVec() {
         return speedVec;

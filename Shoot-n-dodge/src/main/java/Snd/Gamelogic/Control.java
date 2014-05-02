@@ -14,20 +14,50 @@ import Snd.MyGraphics;
  */
 public class Control {
     
+    /**
+     * Controlloitava peli
+     */  
     private Game game;
+    /**
+     * käytettään koordinaatti muunnokseen
+     */
     private MyGraphics graphics;
+    /**
+     * pelaajan alus
+     */
     private Ship playerShip;
+    /**
+     * totuusarvo siitä onko peli käynnissä
+     */
     private boolean running;
     
     /**
-     * player ship control variables
+     * pelaajan aluksen maksimi nopeus
      */
     private float maxSpeed;
+    /**
+     * pelaajan aluksen kontrolli muuttuja
+     */
     private boolean shooting;
+    /**
+     * pelaajan aluksen kontrolli muuttuja
+     */
     private Position target;
+    /**
+     * pelaajan aluksen kontrolli muuttuja
+     */
     private boolean movingLeft;
+    /**
+     * pelaajan aluksen kontrolli muuttuja
+     */
     private boolean movingUp;
+    /**
+     * pelaajan aluksen kontrolli muuttuja
+     */
     private boolean movingRight;
+    /**
+     * pelaajan aluksen kontrolli muuttuja
+     */
     private boolean movingDown;
 
     /**
@@ -44,7 +74,7 @@ public class Control {
     }
     
     /**
-     * Initialisoi asioita
+     * Initialisoi pelaajaan liittyvät muuttujat
      */
     private void initPlayerVariables(){
         maxSpeed=0.005f;
@@ -72,10 +102,10 @@ public class Control {
             shooting=false;
             }
             if(!movingLeft&&!movingRight){
-                playerShip.getSpeedVec().setSpeedX(0);
+                playerShip.getSpeedVec().setSpeedX(0f);
             }
             if(!movingUp&&!movingDown){
-                playerShip.getSpeedVec().setSpeedY(0);
+                playerShip.getSpeedVec().setSpeedY(0f);
             }
             if(movingLeft){
                 playerShip.getSpeedVec().setSpeedX(-maxSpeed);             
@@ -121,7 +151,7 @@ public class Control {
      * @param width
      * @param height
      * @param team
-     * @return 
+     * @return Ship lisätty alus
      */
     public Ship addShip(float x, float y, float dx, float dy,int hp, int maxHp,float width, float height,int team){
         Ship s = new Ship(x,y,dx,dy,hp,maxHp,width,height,team);
@@ -246,7 +276,7 @@ public class Control {
     public Ship getPlayerShip() {
         return playerShip;
     }
-
+ 
     public void setRunning(boolean running) {
         this.running = running;
     }

@@ -16,8 +16,17 @@ import java.awt.Color;
  */
 public class Projectile extends MovingObject implements Destroyable{
     
+    /**
+     * ammuksen osumisvoima
+     */
     int power;
+    /**
+     * totuusarvo siitä koko ammus vielä pelissä
+     */
     private boolean alive;
+    /**
+     * tiimi
+     */
     private int team;
     
 

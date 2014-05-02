@@ -1,8 +1,11 @@
 Snd\Gamelogic\GameObjects\MovingObjectTest.class
 Snd\Gamelogic\ObjectHolderTest.class
+Snd\Gamelogic\GameTest.class
 Snd\Gamelogic\ControlTest.class
 Snd\Gamelogic\PositionTest.class
 Snd\Gamelogic\GameObjects\ShipTest.class
 Snd\MainTest.class
 Snd\Gamelogic\SpeedVectorTest.class
+Snd\Gamelogic\AITest.class
+Snd\Gamelogic\CountdownTimerTest.class
 Snd\Gamelogic\CheckTest.class

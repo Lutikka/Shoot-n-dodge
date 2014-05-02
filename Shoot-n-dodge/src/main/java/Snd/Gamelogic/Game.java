@@ -14,10 +14,26 @@ import Snd.MyGraphics;
  */
 public class Game {
     
+    /**
+     * olio jossa pelin objectit ovat
+     */
     private ObjectHolder objects;
+    /**
+     * pelin AI
+     */
     private AI ai;
+    /**
+     * pelin kontrolloimiseen käytettävä instanssi Controllista
+     */
     private Control ctrl;
+    
+    /**
+     * maksimi x float arvo pelikentän koordinaatistolle
+     */
     private float boundX;
+    /**
+     * maksimi y float arvo pelikentän koordinaatistolle
+     */
     private float boundY;
     
     /**
@@ -61,7 +77,7 @@ public class Game {
 
     /**
      *
-     * @return
+     * @return objects
      */
     public ObjectHolder getObjects() {
         return objects;

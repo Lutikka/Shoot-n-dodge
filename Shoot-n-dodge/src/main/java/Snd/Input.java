@@ -18,13 +18,28 @@ public class Input implements KeyListener, MouseListener {
 
     
     /**
-     *Globaali enumit
+     *Globaali enumi
      */
     public static final int PRESSED = 1;
+    /**
+     *Globaali enumi
+     */
     public static final int RELEASED = 2;
+    /**
+     *Globaali enumi
+     */
     public static final int TYPED = 3;
+    /**
+     *Globaali enumi
+     */
     public static final int CLICKED = 3;
+    /**
+     *Globaali enumi
+     */
     public static final int ENTERED = 4;
+    /**
+     *Globaali enumi
+     */
     public static final int EXITED = 5;
     
     /*
